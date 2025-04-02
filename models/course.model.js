@@ -17,6 +17,7 @@ const CourseSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
+
     language: {
         type: String,
         required: true,
@@ -30,10 +31,14 @@ const CourseSchema = new mongoose.Schema({
     //lessons là mảng chứa các bài học
     lessons: [
         {
-            type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.Mixed,
             ref: 'Lesson',
         },
-    ]
+    ],
+    thumbnail: {
+        type: String, // Lưu URL hoặc đường dẫn file
+        required: false, // Không bắt buộc
+    }
 
 }, { timestamps: true });
 
